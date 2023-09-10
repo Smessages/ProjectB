@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-22.04"
-  config.vm.box_check_update = false
-  config.vm.box_download_insecure = false
+  config.vm.box_check_update = true
+  config.vm.box_download_insecure = true
   config.ssh.insert_key = true
 
   config.vm.define "Production" do |woo|
