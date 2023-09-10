@@ -216,4 +216,11 @@ Orders Microservice:
 
 
 
-pipeline test3
+** pipeline walk-through configuration
+
+plugins to install on the jenkins instance
+
+Docker, Docker pipeline, publish over ssh, blue ocean(optional)
+
+
+
