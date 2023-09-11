@@ -216,11 +216,39 @@ Orders Microservice:
 
 
 
-** pipeline walk-through configuration
+## pipeline walk-through configuration 
 
-plugins to install on the jenkins instance
+### plugins to install on the jenkins instance 
 
-Docker, Docker pipeline, publish over ssh, blue ocean(optional)
+- Docker
+- Docker pipeline
+- publish over ssh
+- blue ocean(optional)
+
+### generate the ssh keys on both the Master and the Agent node
+since our jenkins master node is running in a container we will generate it from within that container.
+the command is the same for the agent but on a seperate machine (Production) under the user jenkins that we created and added it to the docker group.
+here is the command : 
+
+- ssh-keygen -t ed25519 -C "your-email@address.com"
+
+### adding github.com to the known_hosts file of each
+
+- ssh-keyscan github.com >> /var/Jenkins_home/.ssh/known_hosts on the master node (container)
+- ssh-keyscan github.com >> /home/jenkins/.ssh/known_hosts on the Agent machine (as jenkins user)
+
+### adding the public keys that ou just created to the github repo.
+on the github repo just go to your account settings and select ssh keys --> add a new ssh-key they might be some verifications steps depending on your account settings, after that you will have a successfull message uppon completion.
+At this point both the Master node and the Agent Machine can communicate with github.
+
+### configure our pipeline
+- the main steps consist in configuring an agent on the master node and verify that he is really connected 
+- photo    screenshoot
+
+- make the master node not available for jobs unless explicitly specified
+create the pipeline as shown in the picture bellow
+
+
 
 
 
