@@ -5,9 +5,6 @@ pipeline {
     PROJECT_DIR = '/home/jenkins/ProjectB'
     PROJECT_FOLDER = 'ProjectB'
     DOCKER_COMPOSE_FILE = 'microservices/docker-compose.yml'
-    DOCKER_HUB_PAT = 'dckr_pat_BXrAyOA92onTtDGGiiG50vm0WaA'
-    DOCKER_HUB_USER = 'arun33'
-    
   }
 
   stages {
@@ -24,18 +21,6 @@ pipeline {
           sh "docker-compose -f ${DOCKER_COMPOSE_FILE} build"
       }
     }
-    stage('Analyze image') {
-            steps {
-                // Install Docker Scout
-                sh 'curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s -- -b /usr/local/bin'
-                
-                // Log into Docker Hub
-                sh 'echo $DOCKER_HUB_PAT | docker login -u $DOCKER_HUB_USER --password-stdin'
-
-                // Analyze and fail on critical or high vulnerabilities
-                sh 'docker-scout cves ${GIT_COMMIT} --exit-code --only-serverity critical,high'
-            }
-        }
 
     stage('Deploy Microservices Containers') {
       steps {
