@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./microservices/products",
+        "./microservices/products"
+    ]
+}
