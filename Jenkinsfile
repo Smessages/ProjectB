@@ -10,7 +10,6 @@ pipeline {
   stages {
     stage('Clone Git Repository') {
       steps {
-        sh "rm -rf ${PROJECT_DIR}"
         sh "mkdir -p ${PROJECT_DIR}"
         sh "git -C ${PROJECT_DIR} clone --recursive git@github.com:AbdelatifAitBara/ProjectB.git"
       }
