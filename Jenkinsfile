@@ -2,8 +2,8 @@ pipeline {
   agent any
   
   environment {
-    PROJECT_DIR = '/home/jenkins/'
-    PROJECT_FOLDER = 'ProjectB'
+    PROJECT_DIR = '/home/jenkins/ProjectB'
+    PROJECT_FOLDER = 'ProjectB
     DOCKER_COMPOSE_FILE = 'microservices/docker-compose.yml'
   }
 
