@@ -1,5 +1,5 @@
 pipeline {
-  agent docker
+  agent dockerContainer
   
   environment {
     PROJECT_DIR = '/home/jenkins/ProjectB'
