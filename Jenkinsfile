@@ -2,7 +2,7 @@ pipeline {
   agent any
   
   environment {
-    PROJECT_DIR = '/home/jenkins/ProjectB'
+    PROJECT_DIR = '/home/jenkins/'
     PROJECT_FOLDER = 'ProjectB'
     DOCKER_COMPOSE_FILE = 'microservices/docker-compose.yml'
   }
@@ -10,7 +10,6 @@ pipeline {
   stages {
     stage('Clone Git Repository') {
       steps {
-        sh "mkdir -p ${PROJECT_DIR}"
         sh "git -C ${PROJECT_DIR} clone --recursive https://github.com/Smessages/ProjectB.git"
       }
     }
