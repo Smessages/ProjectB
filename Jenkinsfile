@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'Production_Machine' }
+  agent docker
   
   environment {
     PROJECT_DIR = '/home/jenkins/ProjectB'
