@@ -31,7 +31,6 @@ pipeline {
 
     stage('Delete Unused Docker Images') {
       steps {
-        sh 'rm -rf ProjectB'
         sh 'docker system prune --all --force'
       }
     }
@@ -39,9 +38,11 @@ pipeline {
 
   post {
     failure {
+      sh 'rm -rf ProjectB'
       echo "Build failed: ${currentBuild.result}"
     }
     success {
+      sh 'rm -rf ProjectB'
       echo "Build succeeded: ${currentBuild.result}"
     }
   }
