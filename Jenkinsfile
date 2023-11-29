@@ -31,6 +31,7 @@ pipeline {
 
     stage('Delete Unused Docker Images') {
       steps {
+        sh 'rm -rf ProjectB'
         sh 'docker system prune --all --force'
       }
     }
