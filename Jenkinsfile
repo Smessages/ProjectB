@@ -23,7 +23,7 @@ pipeline {
               - name: my-repo
                 gitRepo:
                   repository: https://github.com/Smessages/ProjectB.git
-            """
+            
         }
     }
     stages {
