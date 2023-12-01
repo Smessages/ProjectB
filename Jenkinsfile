@@ -24,6 +24,7 @@ pipeline {
                 gitRepo:
                   repository: https://github.com/Smessages/ProjectB.git
             
+            """
         }
     }
     stages {
@@ -43,5 +44,4 @@ pipeline {
         }
     }
 }
-
  
