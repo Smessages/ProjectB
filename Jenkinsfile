@@ -14,10 +14,10 @@ pipeline {
            }
            steps {
                // Create our project directory.
-               sh 'cd ${APPCACHE}/src'
-               sh 'mkdir -p ${APPCACHE}/src/projectB'
+               sh 'cd ${APPCACHE}/'
+               sh 'mkdir -p ${APPCACHE}/projectB'
                // Copy all files in our Jenkins workspace to our project directory.
-               sh 'cp -r ${WORKSPACE}/* ${APPCACHE}/src/projectB'
+               sh 'cp -r ${WORKSPACE}/* ${APPCACHE}/projectB'
                // Build the app.
                sh 'docker-compose -f ${DOCKER_COMPOSE_FILE} build'
            }
