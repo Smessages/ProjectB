@@ -1,5 +1,5 @@
 pipeline {
-   agent docker
+   agent any
    environment {
        registry = "arun33/"
        DOCKER_COMPOSE_FILE = 'microservices/docker-compose.yml'
@@ -8,7 +8,7 @@ pipeline {
    stages {
        stage('Build') {
            agent {
-               docker {
+               any {
                    image 'arun33/test-jenag:1.0'
                }
            }
