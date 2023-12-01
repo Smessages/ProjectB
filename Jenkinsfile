@@ -1,5 +1,5 @@
 podTemplate {
-    node(kubeagent) {
+    node(aroon-cluster) {
         stage('Run shell') {
             sh 'echo hello world'
         }
