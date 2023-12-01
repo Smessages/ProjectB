@@ -1,54 +1,26 @@
 pipeline {
-  agent { 
-    
-    docker { 
-      image 'arun33/test-jenag:1.0'
-    }
-  }  
-  
-  environment {
-    PROJECT_DIR = '/home/jenkins/ProjectB'
-    PROJECT_FOLDER = 'ProjectB'
-    DOCKER_COMPOSE_FILE = 'microservices/docker-compose.yml'
-  }
-
-  stages {
-    stage('Clone Git Repository') {
-      steps {
-        sh "rm -rf ${PROJECT_DIR}"
-        sh "mkdir -p ${PROJECT_DIR}"
-        sh "git -C ${PROJECT_DIR} clone --recursive git@github.com:AbdelatifAitBara/ProjectB.git"
-      }
-    }
-
-    stage('Build Microservices Images') {
-      steps {
-          sh "docker-compose -f ${DOCKER_COMPOSE_FILE} build"
-      }
-    }
-
-    stage('Deploy Microservices Containers') {
-      steps {
-        input message: 'Approve deployment?', ok: 'Deploy'
-        sh "docker-compose -f ${DOCKER_COMPOSE_FILE} down"
-        sh "docker-compose -f ${DOCKER_COMPOSE_FILE} up -d"
-        
-      }
-    }
-
-    stage('Delete Unused Docker Images') {
-      steps {
-        sh 'docker system prune --all --force'
-      }
-    }
-  }
-
-  post {
-    failure {
-      echo "Build failed: ${currentBuild.result}"
-    }
-    success {
-      echo "Build succeeded: ${currentBuild.result}"
-    }
-  }
+   agent any
+   environment {
+       registry = "arun33/"
+       DOCKER_COMPOSE_FILE = 'microservices/docker-compose.yml'
+   }
+   stages {
+       stage('Build') {
+           agent {
+               docker {
+                   image 'arun33/test-jenag:1.0'
+               }
+           }
+           steps {
+               // Create our project directory.
+               sh 'cd ${GOPATH}/src'
+               sh 'mkdir -p ${GOPATH}/src/projectB'
+               // Copy all files in our Jenkins workspace to our project directory.
+               sh 'cp -r ${WORKSPACE}/* ${GOPATH}/src/projectB'
+               // Build the app.
+               sh 'docker-compose -f ${DOCKER_COMPOSE_FILE} build'
+           }
+       }
+   }
 }
+
