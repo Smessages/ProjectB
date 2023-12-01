@@ -1,5 +1,10 @@
 pipeline {
-  agent { label 'Production_Machine' }
+  agent { 
+    
+    docker { 
+      image 'arun33/test-jenag:1.0'
+    }
+  }  
   
   environment {
     PROJECT_DIR = '/home/jenkins/ProjectB'
