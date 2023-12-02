@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
             cloud 'aroon-cluster'
-            defaultContainer 'docker'
+            defaultContainer 'jnlp'
             yaml """
             apiVersion: v1
             kind: Pod
@@ -11,8 +11,8 @@ pipeline {
                 app: aroon-cluster
             spec:
               containers:
-              - name: docker
-                image: arun33/agent-docker-alpine:1.0
+              - name: jnlp
+                image: jenkinsci/jnlp-slave:alpine
                 command: ["cat"]
                 tty: true
               volumes:
