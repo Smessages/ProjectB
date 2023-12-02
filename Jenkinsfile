@@ -11,7 +11,7 @@ pipeline {
             spec:
               containers:
               - name: docker
-                image: arun33/agent-docker-alpine:1.0
+                image: 
                 command: ["cat"]
                 tty: true
               volumes:
