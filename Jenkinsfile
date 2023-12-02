@@ -2,8 +2,6 @@ pipeline {
     agent {
         kubernetes {
             cloud 'aroon-cluster'
-            inheritFrom 'mypodtemp'
-            defaultContainer 'jnlp'
             yaml """
             apiVersion: v1
             kind: Pod
