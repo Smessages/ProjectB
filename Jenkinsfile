@@ -16,9 +16,13 @@ pipeline {
                 command: ["cat"]
                 tty: true
               volumes:
+              - name: docker-sock
+                hostPath:
+                  path: /var/run/docker.sock
               - name: my-repo
                 gitRepo:
                   repository: https://github.com/Smessages/ProjectB.git
+                
             
             """
         }
