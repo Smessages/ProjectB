@@ -11,7 +11,7 @@ pipeline {
             spec:
               containers:
               - name: docker
-                image: jenkins/jnlp-slave
+                image: arun33/agent-docker-alpine:1.0
                 command: ["cat"]
                 tty: true
               volumes:
