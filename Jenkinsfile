@@ -3,7 +3,6 @@ pipeline {
         kubernetes {
             cloud 'aroon-cluster'
             defaultContainer 'docker'
-            inheritFrom 'mypodtemp'
             yaml """
             apiVersion: v1
             kind: Pod
