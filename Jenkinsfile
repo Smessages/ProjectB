@@ -2,6 +2,7 @@ pipeline {
     agent {
         kubernetes {
             cloud 'aroon-cluster'
+            defaultContainer 'jnlp'
             yaml """
             apiVersion: v1
             kind: Pod
