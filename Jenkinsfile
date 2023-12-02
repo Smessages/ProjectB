@@ -12,13 +12,11 @@ pipeline {
             spec:
               containers:
               - name: jnlp
-                image: jenkinsci/jnlp-slave:alpine
-                command: ["cat"]
+                image: arun33/agent-docker-alpine:1.0
+                command: ["docker --version"]
                 tty: true
               volumes:
-              - name: docker-sock
-                hostPath:
-                  path: /var/run/docker.sock
+         
               - name: my-repo
                 gitRepo:
                   repository: https://github.com/Smessages/ProjectB.git
