@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
             cloud 'aroon-cluster'
-            inheritFrom 'kube-agent'
+            inheritFrom 'mypodtemp'
             defaultContainer 'jnlp'
             yaml """
             apiVersion: v1
