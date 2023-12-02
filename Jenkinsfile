@@ -13,7 +13,6 @@ pipeline {
               containers:
               - name: jnlp
                 image: arun33/agent-docker-alpine:1.0
-                command: ["docker ps"]
                 tty: true
               volumes:
               - name: docker-sock
