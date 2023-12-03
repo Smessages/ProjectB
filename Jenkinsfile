@@ -49,8 +49,7 @@ spec:
              hostname
              cd $PROJECT_FOLDER
              docker --version
-             docker buildx run --driver=kubernetes --driver-opt=namespace=devop-tools,rootless=true --use
-             docker buildx build --progress plain -t arun33/my-docker-image:$BUILD_NUMBER .
+             DOCKER_BUILDKIT=1 docker build --progress plain -t arun33/my-docker-image:$BUILD_NUMBER .
              
           """
         }
