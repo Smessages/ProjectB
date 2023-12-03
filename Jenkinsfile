@@ -44,8 +44,8 @@ spec:
       steps {
         container('docker') {
           sh """
-            cd $PROJECT_FOLDER
-            docker build -t testing-image -f $PROJECT_FOLDER
+      
+            docker build -t testing-image -f .
           """
         }
       }
