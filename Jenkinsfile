@@ -44,7 +44,7 @@ spec:
       steps {
         container('docker') {
           sh
-          docker build -t arun33/testing-image:$BUILD_NUMBER -f $PROJECT_FOLDER
+          docker build -t testing-image:$BUILD_NUMBER -f $PROJECT_FOLDER
         }
       }
     }
