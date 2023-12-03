@@ -17,7 +17,7 @@ spec:
   serviceAccountName: jenkins-admin
   containers:
   - name: docker
-    image: arun33/testsisi-ju-buildkit:1.1
+    image: arun33/buildx:1.0
     command:
     - cat
     tty: true
