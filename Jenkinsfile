@@ -17,7 +17,7 @@ spec:
   serviceAccountName: jenkins-admin
   containers:
   - name: docker
-    image: arun33/agent-docker-alpine:1.0
+    image: arun33/testsisi-root:1.0
     command:
     - cat
     tty: true
