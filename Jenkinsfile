@@ -17,7 +17,7 @@ spec:
   serviceAccountName: jenkins-admin
   containers:
   - name: docker
-    image: arun33/mybuilder:1.1
+    image: jenkins/jnlp-slave:latest
     command:
     - cat
     tty: true
@@ -43,7 +43,6 @@ spec:
       }
     }
     stage('build') {
-      agent { dockerContainer 'jenkins/jnlp-slave:latest' }
       steps {
         sh """
           cd $PROJECT_FOLDER
