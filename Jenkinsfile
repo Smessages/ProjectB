@@ -64,6 +64,8 @@ spec:
       }
     }
   }
+   }
+     
   post {
     always {
       container('docker') {
@@ -73,5 +75,5 @@ spec:
     }
   }
    
-  }
+  
 
