@@ -46,6 +46,7 @@ spec:
       steps {
         container('docker') {
           sh """
+             hostname
              cd $PROJECT_FOLDER
              docker --version
              docker buildx build -t arun33/my-docker-image:$BUILD_NUMBER .
