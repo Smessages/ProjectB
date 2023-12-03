@@ -17,7 +17,7 @@ spec:
   serviceAccountName: jenkins-admin
   containers:
   - name: docker
-    image: arun33/testsisi-root:1.0
+    image: arun33/testsisi-ju-buildkit:1.1
     command:
     - cat
     tty: true
@@ -49,7 +49,7 @@ spec:
              hostname
              cd $PROJECT_FOLDER
              docker --version
-             DOCKER_BUILDKIT=1 docker build --progress plain -t arun33/my-docker-image:$BUILD_NUMBER .
+             DOCKER_BUILDKIT=1 docker build -t arun33/my-docker-image:$BUILD_NUMBER .
              
           """
         }
