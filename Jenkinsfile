@@ -1,7 +1,6 @@
 pipeline {
   environment {
-    PROJECT_FOLDER = 'ProjectB'
-    DOCKERFILE = 'microservices/products/'
+    PROJECT_FOLDER = 'ProjectB/microservices/products/'
   }
   agent {
     kubernetes {
@@ -49,6 +48,7 @@ spec:
           sh """
              cd $PROJECT_FOLDER
              docker --version
+             docker buildx build -t arun33/my-docker-image:$BUILD_NUMBER .
              
           """
         }
