@@ -49,7 +49,7 @@ spec:
              hostname
              cd $PROJECT_FOLDER
              docker --version
-             DOCKER_BUILDKIT=1 docker build -t arun33/my-docker-image:$BUILD_NUMBER .
+             docker build -t arun33/my-docker-image:$BUILD_NUMBER .
              
           """
         }
