@@ -48,6 +48,7 @@ spec:
         container('docker') {
           sh """
              cd $PROJECT_FOLDER
+             docker --version
              
           """
         }
