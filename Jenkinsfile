@@ -48,7 +48,7 @@ spec:
           sh """
              hostname
              cd $PROJECT_FOLDER
-             docker buildx ls
+             docker build -t arun33/my-docker-image:$BUILD_NUMBER .
           """
         }
       }
