@@ -43,7 +43,7 @@ spec:
       steps {
         container('docker') {
           sh """
-             docker build -t arun33/my-docker-image:$BUILD_NUMBER -f ${WORKSPACE}/ProjectB/microservices/products/
+             docker build -t arun33/my-docker-image:$BUILD_NUMBER -f "${WORKSPACE}/ProjectB/microservices/products/"
           """
         }
       }
