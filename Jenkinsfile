@@ -43,8 +43,10 @@ spec:
     stage('Build-Docker-Image') {
       steps {
         container('docker') {
-          sh
-          docker build -t testing-image -f $PROJECT_FOLDER
+          sh """
+            cd $PROJECT_FOLDER
+            docker build -t testing-image -f $PROJECT_FOLDER
+          """
         }
       }
     }
