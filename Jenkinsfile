@@ -43,12 +43,12 @@ spec:
       }
     }
     stage('build') {
+      agent { docker 'jenkins/jnlp-slave:latest' }
       steps {
-        container('docker') {
-          sh """
-             hostname
-             cd $PROJECT_FOLDER
-             docker build -t arun33/my-docker-image:$BUILD_NUMBER .
+          """
+          cd $PROJECT_FOLDER
+          echo 'hello , docker'
+          docker build -t aruun33/my-docker-image:$BUILD_NUMBER .
           """
         }
       }
