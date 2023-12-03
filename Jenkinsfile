@@ -2,7 +2,6 @@ pipeline {
   agent {
     kubernetes {
       cloud 'aroon-cluster'
-      inheritFrom 'devops-tools'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
