@@ -17,7 +17,7 @@ spec:
   serviceAccountName: jenkins-admin
   containers:
   - name: docker
-    image: arun33/buildx:1.1
+    image: 019050461780.dkr.ecr.us-east-1.amazonaws.com/test-jenkins-agent:latest
     command:
     - cat
     tty: true
