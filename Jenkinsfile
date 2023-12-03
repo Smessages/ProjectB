@@ -45,7 +45,7 @@ spec:
         container('docker') {
           sh """
       
-            docker build -t testing-image -f .
+            docker build -t ss69261/testing-image:latest  .
           """
         }
       }
