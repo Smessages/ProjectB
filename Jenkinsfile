@@ -1,4 +1,8 @@
 pipeline {
+  environment {
+    PROJECT_FOLDER = 'ProjectB'
+    DOCKERFILE = 'microservices/products/'
+  }
   agent {
     kubernetes {
       cloud 'aroon-cluster'
@@ -43,7 +47,8 @@ spec:
       steps {
         container('docker') {
           sh """
-             docker build -t arun33/my-docker-image:$BUILD_NUMBER -f "${WORKSPACE}/ProjectB/microservices/products/"
+             cd $PROJECT_FOLDER
+             docker buildx build -t arun33/my-docker-image:$BUILD_NUMBER -f $DOCKERFILE
           """
         }
       }
