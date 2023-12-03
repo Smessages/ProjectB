@@ -48,7 +48,7 @@ spec:
         container('docker') {
           sh """
              cd $PROJECT_FOLDER
-             docker buildx build -t arun33/my-docker-image:$BUILD_NUMBER -f $DOCKERFILE
+             
           """
         }
       }
