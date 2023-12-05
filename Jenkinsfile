@@ -37,6 +37,14 @@ spec:
       steps {
         container('maven') {
           git branch: 'dev-test', changelog: false, poll: false, url: 'https://github.com/Smessages/ProjectB.git'
+          container('docker') {
+            script {
+              def image = docker.build('jenkins/jnlp-slave')
+              image.inside() {
+                sh "docker build -t ss69261/testing-image:latest ."
+              }
+            }
+          }
         }
       }
     }  
@@ -50,30 +58,9 @@ spec:
         }
       }
     }
-    stage('Login-Into-Docker') {
-      steps {
-        container('docker') {
-          sh 'docker login -u arun33 -p dckr_pat_bAaWdOnHOWD9HrjQyNXiKPhYrnc'
-      }
-    }
-    }
-    stage('Push-Images-Docker-to-DockerHub') {
-      steps {
-        container('docker') {
-          sh 'docker push arun33/testing-image:$BUILD_NUMBER'
-      }
-    }
-  }
    }
-     
-  post {
-    always {
-      container('docker') {
-        sh 'docker logout'
-      }
-      }
-    }
-  }
+}
+
    
   
 
