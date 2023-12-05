@@ -33,9 +33,8 @@ spec:
 }
    }
    stages {
-    stage('Clone') {
+    stage('Clone and buil docker image') {
       steps {
-        container('maven') {
           git branch: 'dev-test', changelog: false, poll: false, url: 'https://github.com/Smessages/ProjectB.git'
           container('docker') {
             script {
@@ -45,7 +44,6 @@ spec:
               }
             }
           }
-        }
       }
     }  
    }
