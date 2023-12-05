@@ -33,21 +33,26 @@ spec:
 }
    }
    stages {
-    stage('Clone and buil docker image') {
+    stage('Clone') {
       steps {
           git branch: 'dev-test', changelog: false, poll: false, url: 'https://github.com/Smessages/ProjectB.git'
-          container('docker') {
-            script {
-              def image = docker.build('jenkins/jnlp-slave')
-              image.inside() {
-                sh "docker build -t ss69261/testing-image:latest ."
-              }
+         }
+      }
+    }
+    stage('build') {
+      steps {
+        container('docker') {
+          script {
+            def image = docker.build("jenkins/jnlp-slave","testing-image:$BUILD_NUMBER")
+            image.inside(){
+              sh "docker info"
             }
           }
+        }
       }
-    }  
-   }
+    }
 }
+  
 
    
   
