@@ -9,10 +9,10 @@ from datetime import datetime, timedelta
 import os
 app = Flask(__name__)
 CORS(app)
-app.config['MYSQL_DATABASE_USER'] = 'phenix'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'password'
-app.config['MYSQL_DATABASE_DB'] = 'wordpress_db'
-app.config['MYSQL_DATABASE_HOST'] = 'db'
+app.config['MYSQL_DATABASE_USER'] = 'wordpress'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'Larouna10@'
+app.config['MYSQL_DATABASE_DB'] = 'wordpress'
+app.config['MYSQL_DATABASE_HOST'] = 'wordpress-mysql'
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 API_URL = os.getenv('API_URL')
 consumer_key = os.getenv('CONSUMER_KEY')
