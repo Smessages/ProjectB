@@ -4,7 +4,6 @@ Flask-Cors==3.0.10
 PyJWT==2.3.0
 requests
 requests_oauthlib
-oauthlib
-Werkzeug==3.0.1 
+oauthlib 
 Flask-Login==0.6.3
 Werkzeug==2.3.7
